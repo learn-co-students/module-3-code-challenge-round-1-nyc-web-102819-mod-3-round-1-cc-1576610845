@@ -23,7 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
       imageLikes.innerText = image.like_count
       image.comments.forEach(function(comment){
         let newComment = document.createElement('li')
-        newComment.innerHTML = comment.content
+        // newComment.innerHTML = comment.content
+        newComment.innerHTML = `
+          <button id="dddelete">Delete</button>
+          ${comment.content}
+        `
+        // newComment.dataset."something" = comment."smoething"
         imageCommentsContainer.append(newComment)
       })
 
@@ -61,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let newComment = document.createElement('li')
     let newCommentText = commentFormInput.value
     newComment.innerText = newCommentText
+    // newComment.dataset."something" = comment."smoething"
     imageCommentsContainer.append(newComment)
     commentForm.reset()
     updateCommentsDB(newCommentText)
@@ -81,8 +87,30 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-
-
+  // BONUS
+  // imageCommentsContainer.addEventListener('click', function(e){
+  //   if (e.target.id === "dddelete"){
+  //     // invoke deleteCommentFromDB(e)
+      
+  //   }
+    
+    
+  // })
+  
+  // function deleteCommentFromDB(e){     // may have to pass in argument
+  //   fetch(commentsURL, {
+  //     method: "DELETE",
+  //     body: ({
+  //       // just have to find the obj
+  //     })
+  //   })
+  //   .then(function(response){
+  //     return response.json()
+  //   })
+  //   .then 
+    
+  //   // e.target.parentNode.remove()
+  // }
 
 
 
